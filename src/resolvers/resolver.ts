@@ -6,12 +6,7 @@ const db = require("../../config/db");
 const livre = require("../../config/models/LivreSchema")
 const LivreModel = mongoose.model('livreSchema', livre);
 
-/*const { Kafka } = require('kafkajs')
 
-const kafka = new Kafka({
-  clientId: 'my-app',
-  brokers: ['kafka1:9092', 'kafka2:9092']
-})*/
 
 @Resolver()
 export default class LivreResolver{
@@ -28,29 +23,8 @@ export default class LivreResolver{
     @Mutation(() => livreSchema)
     async creatLivre(@Arg("input") input: livreMutation){
         try {
-            /*const producer = kafka.producer()
-
-            await producer.connect()
-            await producer.send({
-            topic: 'test-topic',
-            messages: [
-                input
-            ],
-            })
-            await producer.disconnect()
-
-            const consumer = kafka.consumer({ groupId: 'test-group' })
-
-            await consumer.connect()
-            await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
-
-            await consumer.run({
-            eachMessage: async (message: { value: { toString: () => any; }; }) => {
-                console.log({
-                value: message.value.toString(),
-                })
-            },
-            })*/
+           
+           
             const newLivre = await new LivreModel({ 
                 ...input
             });

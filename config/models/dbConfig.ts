@@ -1,7 +1,7 @@
 const {connect, connection} = require('mongoose');
 const LivresSchema = require('./LivreSchema');
 
-connect('mongodb+srv://dataBaseUsr:dbUser@cluster0.wqkqe.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+connect('URLMONGODBATLAS a ajouter')
     .then(() => {
         console.log("connected to the database");
     })
